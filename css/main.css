@@ -1,0 +1,126 @@
+
+.c_container_div
+{
+  max-width: 600px;
+}
+
+.toneRow {
+  height: 64px;
+  border-top: solid 1px gray;
+  text-align: center;
+}
+
+.instrumentRow {
+  height: 64px;
+  //border-top: solid 1px gray;
+  text-align: center;
+}
+
+.colorRow {
+  height: 64px;
+  //border-top: solid 1px gray;
+  text-align: center;
+}
+
+.token {
+  height: 60px;
+  width: 64px;
+  background: #fafafa;
+  display: inline-block;
+}
+
+.colorPick {
+  height: 64px;
+  width: 64px;
+  border: 1px dashed gray;
+  display: inline-block;
+}
+
+.instrumentPick {
+  height: 64px;
+  width: 64px;
+  border: 1px dashed gray;
+  display: inline-block;
+}
+
+.guitarPick {
+  background: url('../media/guitar.png');
+  background-size: contain;
+}
+
+.xyloPick {
+  background: url('../media/xylo.png');
+  background-size: contain;
+}
+
+.redPick {
+  background: red;
+}
+
+.greenPick {
+  background: green;
+}
+
+.mainHeader {
+  font-size: 50px;
+  font-family:'Amatic SC';
+  text-align: center;
+  position: relative;
+  height: 64px;
+}
+
+.playIcon {
+  width: 32px;
+  height: 64px;
+  position: absolute;
+  right: 10px;
+  top: 0px;
+  background:url('../media/play.png'); 
+  background-size: contain; 
+  background-repeat: no-repeat; 
+  background-position: center;
+}
+
+@media only screen and (max-width: 800px) {
+  .mainHeader {
+    font-size: 40px;
+    position: relative;
+    height: 64px;
+  }
+
+  .toneRow {
+    height: 32px;
+  }
+
+  .token {
+    width: 32px;
+    height: 32px;
+  }
+
+  .colorRow {
+    height: 32px;
+    position: absolute;
+    bottom: 64px;
+    margin: auto;
+    margin-left: 2px;
+  }
+
+  .colorPick {
+    height: 32px;
+    width: 32px;
+  }
+
+  .instrumentRow {
+    height: 32px;
+
+    position: absolute;
+    bottom: 16px;
+    margin: auto;
+    margin-left: 2px;
+  }
+
+  .instrumentPick {
+    height: 32px;
+    width: 32px;
+  }
+}
