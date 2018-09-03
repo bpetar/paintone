@@ -6,14 +6,14 @@ var prevousFrame = numFrames;
 var mainLoopPlaying = false;
 
 var sheet = [
-  [{'instrument': 'xylophone', 'note': 'C'}],
-  [{'instrument': 'xylophone', 'note': 'D'}],
-  [{'instrument': 'xylophone', 'note': 'E'}],
+  [{'instrument': 'xylophone', 'note': 'C'}, {'instrument': 'guitar', 'note': 'C'}],
+  [{'instrument': 'xylophone', 'note': 'D'}, {'instrument': 'guitar', 'note': 'C'}],
+  [{'instrument': 'xylophone', 'note': 'E'}, {'instrument': 'guitar', 'note': 'C'}],
   [],
-  [{'instrument': 'xylophone', 'note': 'C'}],
-  [{'instrument': 'xylophone', 'note': 'D'}],
-  [{'instrument': 'xylophone', 'note': 'E'}],
-  [{'instrument': 'xylophone', 'note': 'E'}],
+  [{'instrument': 'xylophone', 'note': 'C'}, {'instrument': 'guitar', 'note': 'D'}],
+  [{'instrument': 'xylophone', 'note': 'D'}, {'instrument': 'guitar', 'note': 'D'}],
+  [{'instrument': 'xylophone', 'note': 'E'}, {'instrument': 'guitar', 'note': 'E'}],
+  [{'instrument': 'xylophone', 'note': 'E'}, {'instrument': 'guitar', 'note': 'E'}],
 ];
 
 // TODO add all tones and intruments
@@ -23,6 +23,8 @@ instruments = {
 };
 
 // TODO init all tones and instruments like these
+
+// xylophone
 instruments.xylophone.C = document.createElement('audio');
 var source = document.createElement('source');
 source.src = 'media/tones/C.wav';
@@ -42,6 +44,28 @@ instruments.xylophone.F = document.createElement('audio');
 var source = document.createElement('source');
 source.src = 'media/tones/F.wav';
 instruments.xylophone.F.appendChild(source); 
+
+// guitar
+instruments.guitar.C = document.createElement('audio');
+var source = document.createElement('source');
+source.src = 'media/tones/guitar_C.mp3';
+instruments.guitar.C.appendChild(source); 
+
+instruments.guitar.D = document.createElement('audio');
+var source = document.createElement('source');
+source.src = 'media/tones/guitar_D.mp3';
+instruments.guitar.D.appendChild(source); 
+
+instruments.guitar.E = document.createElement('audio');
+var source = document.createElement('source');
+source.src = 'media/tones/guitar_E.mp3';
+instruments.guitar.E.appendChild(source); 
+
+instruments.guitar.F = document.createElement('audio');
+var source = document.createElement('source');
+source.src = 'media/tones/guitar_F.mp3';
+instruments.guitar.F.appendChild(source); 
+
 
 function processRow() {
 
