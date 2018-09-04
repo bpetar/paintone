@@ -46,19 +46,92 @@
 .guitarPick {
   background: url('../media/guitar.png');
   background-size: contain;
+  background-position: center;
 }
 
 .xyloPick {
   background: url('../media/xylo.png');
   background-size: contain;
+  background-position: center;
 }
 
+.frulaPick {
+  background: url('../media/frula.png');
+  background-size: contain;
+  background-position: center;
+}
+
+.trombonePick {
+  background: url('../media/trombone.png');
+  background-size: contain;
+  background-position: center;
+}
+.drumsPick {
+  background: url('../media/drums.png');
+  background-size: contain;
+  background-position: center;
+}
+.harfPick {
+  background: url('../media/harf.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.violinPick {
+  background: url('../media/violin.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.saxPick {
+  background: url('../media/sax.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+
 .redPick {
-  background: red;
+  color: #EE6352;
 }
 
 .greenPick {
-  background: green;
+  color: #57A773;
+}
+
+.bluePick {
+  color: #08B2E3;
+}
+
+.yellowPick {
+   color: #F4D35E;
+}
+
+.pinkPick {
+   color: #E4959E;
+}
+ 
+ .brownPick {
+   color: #BAA5FF;
+ }
+
+ .orangePick {
+  color: #FF8552;
+ }
+
+ .blackPick {
+  color: #484D6D;
+ }
+
+ .circle {
+      width: 50px;
+      height: 50px;
+      -webkit-border-radius: 25px;
+      -moz-border-radius: 25px;
+      border-radius: 25px;
+      border: 5px solid;
+      margin: 7px;
 }
 
 .mainHeader {
@@ -70,8 +143,8 @@
 }
 
 .playIcon {
-  width: 32px;
-  height: 64px;
+  width: 75px;
+  height: 50px;
   position: absolute;
   right: 10px;
   top: 0px;
