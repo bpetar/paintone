@@ -1,7 +1,7 @@
 
 .c_container_div
 {
-  max-width: 600px;
+  max-width: 580px;
 }
 
 .toneRow {
@@ -26,20 +26,21 @@
   height: 60px;
   width: 64px;
   background: #fafafa;
+  border: solid 1px #fafafa;
   display: inline-block;
 }
 
 .colorPick {
   height: 64px;
   width: 64px;
-  border: 1px dashed gray;
+  border: 1px dashed white;
   display: inline-block;
 }
 
 .instrumentPick {
   height: 64px;
   width: 64px;
-  border: 1px dashed gray;
+  border: 1px dashed white;
   display: inline-block;
 }
 
@@ -50,13 +51,13 @@
 }
 
 .xyloPick {
-  background: url('../media/xylo.png');
+  background: url('../media/xylophone.png');
   background-size: contain;
   background-position: center;
 }
 
 .frulaPick {
-  background: url('../media/frula.png');
+  background: url('../media/pipe.png');
   background-size: contain;
   background-position: center;
 }
@@ -72,7 +73,7 @@
   background-position: center;
 }
 .harfPick {
-  background: url('../media/harf.png');
+  background: url('../media/harp.png');
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
@@ -91,51 +92,62 @@
   background-position: center;
 }
 
-
 .redPick {
   color: #EE6352;
+}
+
+.yellowPick {
+  color: #F4D35E;
+}
+
+.orangePick {
+  color: #FF8552;
 }
 
 .greenPick {
   color: #57A773;
 }
 
+.purplePick {
+  color: #673ab7;
+}
+
 .bluePick {
   color: #08B2E3;
 }
 
-.yellowPick {
-   color: #F4D35E;
-}
-
 .pinkPick {
-   color: #E4959E;
+  color: #E4959E;
 }
- 
- .brownPick {
-   color: #BAA5FF;
- }
 
- .orangePick {
-  color: #FF8552;
- }
+.red1Pick {
+  color: #FE7362;
+}
 
- .blackPick {
-  color: #484D6D;
- }
+.circle {
+  width: 50px;
+  height: 50px;
+  -webkit-border-radius: 25px;
+  -moz-border-radius: 25px;
+  border-radius: 25px;
+  border: 5px solid;
+  margin: 7px;
+}
 
- .circle {
-      width: 50px;
-      height: 50px;
-      -webkit-border-radius: 25px;
-      -moz-border-radius: 25px;
-      border-radius: 25px;
-      border: 5px solid;
-      margin: 7px;
+.circle2 {
+  width: 54px;
+  height: 54px;
+  -webkit-border-radius: 25px;
+  -moz-border-radius: 25px;
+  border-radius: 25px;
+  border: 4px solid;
+  border-color: #fafafa;
+  margin: 7px;
 }
 
 .mainHeader {
   font-size: 50px;
+  color: gray;
   font-family:'Amatic SC';
   text-align: center;
   position: relative;

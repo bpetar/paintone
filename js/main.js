@@ -4,22 +4,56 @@ var numFrames = 8;
 var notesInARow = 8;
 var prevousFrame = numFrames;
 var mainLoopPlaying = false;
+var selectedInstrument = 'guitar';
+var selectedNote = 'C';
+
+var selectedColorElement = null;
+var selectedInstrumentElement = null;
 
 var sheet = [
-  [{'instrument': 'xylophone', 'note': 'C'}, {'instrument': 'guitar', 'note': 'C'}],
-  [{'instrument': 'xylophone', 'note': 'D'}, {'instrument': 'guitar', 'note': 'C'}],
-  [{'instrument': 'xylophone', 'note': 'E'}, {'instrument': 'guitar', 'note': 'C'}],
   [],
-  [{'instrument': 'xylophone', 'note': 'C'}, {'instrument': 'guitar', 'note': 'D'}],
-  [{'instrument': 'xylophone', 'note': 'D'}, {'instrument': 'guitar', 'note': 'D'}],
-  [{'instrument': 'xylophone', 'note': 'E'}, {'instrument': 'guitar', 'note': 'E'}],
-  [{'instrument': 'xylophone', 'note': 'E'}, {'instrument': 'guitar', 'note': 'E'}],
+  [],
+  [],
+  [],
+  [],
+  [],
+  [],
+  [],
 ];
+
+notes = ['C', 'D', 'E', 'F', 'G', 'A1', 'B1', 'C1'];
+
+//instruments = ['guitar', 'xylophone', 'pipe', 'trombone', 'drums', 'harp', 'violin', 'sax'];
+
+notesColors = {
+  'C': '#EE6352', 
+  'D': '#F4D35E', 
+  'E': '#FF8552', 
+  'F': '#57A773', 
+  'G': '#673ab7', 
+  'A1': '#08B2E3', 
+  'B1': '#E4959E', 
+  'C1': '#FE7362'
+};
 
 // TODO add all tones and intruments
 instruments = {
+  '0': 'guitar',
   'guitar': {'C': null, 'D': null},
-  'xylophone': {'C': null, 'D': null}
+  '1': 'xylophone',
+  'xylophone': {'C': null, 'D': null},
+  '2': 'pipe',
+  'pipe': {'C': null, 'D': null},
+  '3': 'trombone',
+  'trombone': {'C': null, 'D': null},
+  '4': 'drums',
+  'drums': {'C': null, 'D': null},
+  '5': 'harp',
+  'harp': {'C': null, 'D': null},
+  '6': 'violin',
+  'violin': {'C': null, 'D': null},
+  '7': 'sax',
+  'sax': {'C': null, 'D': null}
 };
 
 // TODO init all tones and instruments like these
@@ -66,6 +100,25 @@ var source = document.createElement('source');
 source.src = 'media/tones/guitar_F.mp3';
 instruments.guitar.F.appendChild(source); 
 
+instruments.guitar.G = document.createElement('audio');
+var source = document.createElement('source');
+source.src = 'media/tones/guitar_G.mp3';
+instruments.guitar.G.appendChild(source); 
+
+instruments.guitar.A1 = document.createElement('audio');
+var source = document.createElement('source');
+source.src = 'media/tones/guitar_A1.mp3';
+instruments.guitar.A1.appendChild(source); 
+
+instruments.guitar.B1 = document.createElement('audio');
+var source = document.createElement('source');
+source.src = 'media/tones/guitar_B1.mp3';
+instruments.guitar.B1.appendChild(source); 
+
+instruments.guitar.C1 = document.createElement('audio');
+var source = document.createElement('source');
+source.src = 'media/tones/guitar_C1.mp3';
+instruments.guitar.C1.appendChild(source); 
 
 function processRow() {
 
@@ -104,16 +157,17 @@ function processRow() {
 $(document).ready(function() {
   console.log('page loaded');
 
-  //document.getElementById('id-div-row' + currentFrame).style.backgroundColor = 'lightGreen';
-
   if (mainLoopPlaying) {
     processRow();
   }
 
   initEvents();
 
-  /*resultTimoutHandler = setTimeout(function(){ 
-    processRow();
-  }, 1200);*/
+  // set selected tones and instruments
+  selectedColorElement = document.getElementById('id-div-col-0');
+  selectedInstrumentElement = document.getElementById('id-div-ins-0');
+  selectedColorElement.style.borderColor = "#2afa2a";
+  selectedInstrumentElement.style.borderColor = "#2afa2a";
+
 });
 
