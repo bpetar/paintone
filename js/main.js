@@ -120,6 +120,16 @@ var source = document.createElement('source');
 source.src = 'media/tones/guitar_C1.mp3';
 instruments.guitar.C1.appendChild(source); 
 
+instruments.drums.C = document.createElement('audio');
+var source = document.createElement('source');
+source.src = 'media/tones/drums_C.mp3';
+instruments.drums.C.appendChild(source); 
+
+instruments.drums.D = document.createElement('audio');
+var source = document.createElement('source');
+source.src = 'media/tones/drums_D.mp3';
+instruments.drums.D.appendChild(source); 
+
 function processRow() {
 
   prevousFrame = currentFrame;
