@@ -1,25 +1,75 @@
 
 .c_container_div
 {
-  max-width: 580px;
+  max-width: 600px;
+  position: relative;
+}
+
+.c_rowContainer_div
+{
+  margin-top: 64px;
+  max-width: 590px;
+  overflow-x: scroll;
+}
+
+.mainHeader {
+  font-size: 50px;
+  color: gray;
+  font-family:'Amatic SC';
+  text-align: center;
+  position: fixed;
+  top: 0px;
+  width: 100%;
+  max-width: 590px;
+  height: 64px;
+  background: white;
+}
+
+.playIcon {
+  width: 60px;
+  height: 50px;
+  position: absolute;
+  right: 10px;
+  cursor: pointer;
+  top: 10px;
+  background:url('../media/play.png'); 
+  background-size: contain; 
+  background-repeat: no-repeat; 
+  background-position: center;
 }
 
 .toneRow {
   height: 64px;
   border-top: solid 1px gray;
   text-align: center;
+  min-width: 590px;
 }
 
 .instrumentRow {
-  height: 64px;
+  position: fixed;
+  bottom: 0px;
+  padding-bottom: 10px;
+  width: 590px;
+  height: 74px;
+  background: white;
   //border-top: solid 1px gray;
   text-align: center;
 }
 
-.colorRow {
+.colorRowWrap {
+  position: fixed;
+  bottom: 74px;
+  background: white;
+  width: 100%;
   height: 64px;
-  //border-top: solid 1px gray;
+  overflow-x: auto;
+}
+
+.colorRow {
+  width: 590px;
+  height: 64px;
   text-align: center;
+  margin-left: 0px;
 }
 
 .token {
@@ -131,7 +181,7 @@
   -moz-border-radius: 25px;
   border-radius: 25px;
   border: 5px solid;
-  margin: 7px;
+  margin: 5px;
 }
 
 .circle2 {
@@ -142,30 +192,10 @@
   border-radius: 25px;
   border: 4px solid;
   border-color: #fafafa;
-  margin: 7px;
+  margin: 5px;
 }
 
-.mainHeader {
-  font-size: 50px;
-  color: gray;
-  font-family:'Amatic SC';
-  text-align: center;
-  position: relative;
-  height: 64px;
-}
-
-.playIcon {
-  width: 75px;
-  height: 50px;
-  position: absolute;
-  right: 10px;
-  top: 0px;
-  background:url('../media/play.png'); 
-  background-size: contain; 
-  background-repeat: no-repeat; 
-  background-position: center;
-}
-
+/*
 @media only screen and (max-width: 800px) {
   .mainHeader {
     font-size: 40px;
@@ -207,5 +237,5 @@
   .instrumentPick {
     height: 32px;
     width: 32px;
-  }
+  }*/
 }

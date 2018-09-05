@@ -147,9 +147,13 @@ function processRow() {
       if (tone) {
         console.log('play ' + tone.instrument + ': ' + tone.note);
 
-        instruments[tone.instrument][tone.note].volume = 1;
-        instruments[tone.instrument][tone.note].currentTime = 0;
-        instruments[tone.instrument][tone.note].play();
+        if(instruments[tone.instrument] && instruments[tone.instrument][tone.note]) {
+          instruments[tone.instrument][tone.note].volume = 1;
+          instruments[tone.instrument][tone.note].currentTime = 0;
+          instruments[tone.instrument][tone.note].play();
+        } else {
+          console.log('tone undefined');
+        }
         
       }
     } else {
@@ -179,5 +183,6 @@ $(document).ready(function() {
   selectedColorElement.style.borderColor = "#2afa2a";
   selectedInstrumentElement.style.borderColor = "#2afa2a";
 
+  console.log('window width: ' + window.offsetWidth);
 });
 
