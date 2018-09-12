@@ -9,7 +9,7 @@
 {
   margin-top: 64px;
   max-width: 590px;
-  overflow-x: scroll;
+  overflow-x: auto;
 }
 
 .mainHeader {
@@ -23,6 +23,7 @@
   max-width: 590px;
   height: 64px;
   background: white;
+  z-index: 2;
 }
 
 .playIcon {
@@ -38,11 +39,119 @@
   background-position: center;
 }
 
+.thingsIcon {
+  width: 60px;
+  height: 50px;
+  position: absolute;
+  left: 10px;
+  cursor: pointer;
+  top: 10px;
+  background:url('../media/settings.png'); 
+  background-size: contain; 
+  background-repeat: no-repeat; 
+  background-position: center;
+}
+
+.settings-div {
+  display: none;
+  margin-top: 64px;
+  max-width: 590px;
+  //min-width: 160px;
+  //min-height: 250px;
+  //position: absolute;
+  //left: 10px;
+  //top: 100px;
+  //background: red; 
+  //background-size: contain; 
+  //background-repeat: no-repeat; 
+  //background-position: center;
+}
+
+.settingsRow {
+  position: relative;
+  height: 64px;
+  border-top: solid 1px gray;
+  min-width: 570px;
+  padding-left: 70px;
+  padding-top: 11px;
+  font-size: 30px;
+  color: gray;
+  font-family:'Amatic SC';
+}
+
+.speedIcon {
+  background:url('../media/speed.png'); 
+  background-size: contain; 
+  background-repeat: no-repeat; 
+  background-position: center;
+}
+
+.libraryIcon {
+  cursor: pointer;
+  background:url('../media/library.png'); 
+  background-size: contain; 
+  background-repeat: no-repeat; 
+  background-position: center;
+}
+
+.shareIcon {
+  background:url('../media/share.png'); 
+  background-size: contain; 
+  background-repeat: no-repeat; 
+  background-position: center;
+}
+
+.leftIcon {
+  position: absolute;
+  left: 160px;
+  top: 2px;
+  width: 50px;
+  height: 64px;
+  background:url('../media/left.png'); 
+  background-size: contain; 
+  background-repeat: no-repeat; 
+  background-position: center;
+}
+
+.rightIcon {
+  position: absolute;
+  left: 320px;
+  top: 2px;
+  width: 50px;
+  height: 64px;
+  background:url('../media/right.png'); 
+  background-size: contain; 
+  background-repeat: no-repeat; 
+  background-position: center;
+}
+
+.settingIcon {
+  position: absolute;
+  left: 10px;
+  top: 2px;
+  width: 50px;
+  height: 64px;
+}
+
+.settingTitle {
+  display: inline-block;
+  height: 64px;
+  font-size: 30px;
+  color: gray;
+  font-family:'Amatic SC';
+}
+
+.settingValue {
+  display: inline-block;
+  width: 50px;
+  height: 64px;
+}
+
 .toneRow {
   height: 64px;
   border-top: solid 1px gray;
   text-align: center;
-  min-width: 590px;
+  min-width: 570px;
 }
 
 .instrumentRow {

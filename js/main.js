@@ -6,6 +6,7 @@ var prevousFrame = numFrames;
 var mainLoopPlaying = false;
 var selectedInstrument = 'guitar';
 var selectedNote = 'C';
+var songSpeedMilis = 500;
 
 var selectedColorElement = null;
 var selectedInstrumentElement = null;
@@ -35,6 +36,17 @@ notesColors = {
   'B1': '#E4959E', 
   'C1': '#FE7362'
 };
+
+instrumentCodes = {
+  'g' : 'guitar',
+  'x' : 'xylophone',
+  'p' : 'pipe',
+  't' : 'trombone',
+  'd' : 'drums',
+  'h' : 'harp',
+  'v' : 'violin',
+  's' : 'sax'
+}
 
 // TODO add all tones and intruments
 instruments = {
@@ -164,12 +176,14 @@ function processRow() {
   if (mainLoopPlaying) {
     resultTimoutHandler = setTimeout(function(){ 
       processRow();
-    }, 500);
+    }, songSpeedMilis);
   }
 }
 
 $(document).ready(function() {
   console.log('page loaded');
+
+  parseSongFromURL();
 
   if (mainLoopPlaying) {
     processRow();

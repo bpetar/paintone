@@ -67,8 +67,7 @@ function initEvents() {
   });
 
   $('.playIcon').mousedown(function(){
-
-    console.log('awd');
+    console.log('play clicked');
     
     // play stop main loop
     if (mainLoopPlaying) {
@@ -78,5 +77,23 @@ function initEvents() {
       processRow();
     }
 
+    generateURL();
+
+  });
+
+  $('.thingsIcon').mousedown(function(){
+    console.log('settings clicked');
+
+    // toggle settings panel
+    if ($('.settings-div').is(":visible")) {
+      $('.settings-div').hide('fast');
+    } else {
+      $('.settings-div').show('fast');
+      $("#id-input-songurl").val(generateURL());
+    }
+  });
+
+  $("#id-input-songspeed").change(function() {
+    songSpeedMilis = $("#id-input-songspeed").val();
   });
 }
