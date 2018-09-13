@@ -16,8 +16,8 @@
 //  
 //  example: http://www.mystic-peanut.com/mystic_sites/paintone/paintone.html?nl=8&sp=500&sl=g0;-g0;--g0;---g0;;;;;
 
-function parseSongFromURL() {
-  var url = new URL(window.location.href);
+function parseSongFromURL(songurl) {
+  var url = new URL(songurl ? songurl : window.location.href);
   var numberOfLines = url.searchParams.get("nl");
   console.log('parseSongFromURL numberOfLines: ' + numberOfLines);
   if (numberOfLines) {
@@ -77,9 +77,8 @@ function getNoteCodesFromSongLine(sheetLine) {
         
         if ( ! theresMoreNotesInTheRow(sheetLine, j+1)) 
           break;
-      } else {
-        notesCodes += '-';
       }
+      notesCodes += '-';
     }
   }
 
@@ -112,7 +111,9 @@ function getNoteCode(instrument, note) {
 }
 
 function setNoteFromCode(noteCode, row, col) {
+
   var codedNote = notes[noteCode.substr(1)];
+  //console.log('codedNote: ' + codedNote + 'noteCode.substr(1): ' + noteCode.substr(1));
   var codedInstrument = instrumentCodes[noteCode.charAt(0)];
   sheet[row][col] = {};
   sheet[row][col].instrument = codedInstrument;

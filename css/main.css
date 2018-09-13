@@ -103,6 +103,7 @@
 
 .leftIcon {
   position: absolute;
+  cursor: pointer;
   left: 160px;
   top: 2px;
   width: 50px;
@@ -115,6 +116,7 @@
 
 .rightIcon {
   position: absolute;
+  cursor: pointer;
   left: 320px;
   top: 2px;
   width: 50px;

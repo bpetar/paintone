@@ -95,5 +95,34 @@ function initEvents() {
 
   $("#id-input-songspeed").change(function() {
     songSpeedMilis = $("#id-input-songspeed").val();
+    console.log('songSpeedMilis set to: ' + songSpeedMilis);
   });
+
+  $('.leftIcon').mousedown(function() {
+    songSpeedMilis = parseInt($("#id-input-songspeed").val())-1;
+    $("#id-input-songspeed").val(songSpeedMilis);
+  });
+
+  $('.rightIcon').mousedown(function() {
+    songSpeedMilis = parseInt($("#id-input-songspeed").val())+1;
+    $("#id-input-songspeed").val(songSpeedMilis);
+  });
+
+  $('.saveRow').mousedown(function() {
+    // save the song to cache
+    var songCode = generateURL();
+    window.localStorage.setItem("song1", songCode);
+    $('.settings-div').hide('fast');
+    // TODO: show notificatoin 'song saved'
+  });
+
+  $('.loadRow').mousedown(function() {
+    // load the song from cache
+    var songUrl = window.localStorage.getItem("song1");
+    console.log('the loaded song: ' + songUrl);
+    parseSongFromURL(songUrl);
+    $('.settings-div').hide('fast');
+    // TODO: show notificatoin 'song loaded'
+  });
+
 }
