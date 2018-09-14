@@ -7,6 +7,7 @@ var mainLoopPlaying = false;
 var selectedInstrument = 'guitar';
 var selectedNote = 'C';
 var songSpeedMilis = 500;
+var songName = 'song1';
 
 var selectedColorElement = null;
 var selectedInstrumentElement = null;

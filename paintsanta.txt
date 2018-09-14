@@ -1,12 +1,13 @@
 todos:
 
-- add pretty notification toast (for save and load)
-- add input dialog for save song name
++ add pretty notification toast/snackbar (for save and load)
++ add input dialog for save song name
 - add list of saved songs for load song button
-- load song to clear sheet notes
++ load song to clear sheet notes .
+- load song disabled when no saved songs
 - set speed buttons to increase volume fast while pressed
 - go to top of the screen when settings button is pressed
 - view frame to follow the selection bar
 - tones to play when selected, instruments too
-- add 'clear all' button
++ add 'clear all' button
 - pause to stop playback imediately

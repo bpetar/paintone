@@ -108,21 +108,27 @@ function initEvents() {
     $("#id-input-songspeed").val(songSpeedMilis);
   });
 
-  $('.saveRow').mousedown(function() {
+  $('.saveRow').click(function() {
     // save the song to cache
     var songCode = generateURL();
-    window.localStorage.setItem("song1", songCode);
-    $('.settings-div').hide('fast');
+    window.localStorage.setItem(songName, songCode);
     // TODO: show notificatoin 'song saved'
+    showNotification('Song saved');
   });
 
   $('.loadRow').mousedown(function() {
-    // load the song from cache
-    var songUrl = window.localStorage.getItem("song1");
-    console.log('the loaded song: ' + songUrl);
-    parseSongFromURL(songUrl);
+    loadSong();
     $('.settings-div').hide('fast');
-    // TODO: show notificatoin 'song loaded'
+  });
+
+  $('.clearRow').mousedown(function() {
+    clearSheet();
+    $('.settings-div').hide('fast');
+  });
+
+  $("#id-input-songname").change(function() {
+    songName = $("#id-input-songname").val();
+    console.log('songName set to: ' + songName);
   });
 
 }

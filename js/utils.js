@@ -14,19 +14,21 @@
 //  - '-' note separator
 //  - ''
 //  
-//  example: http://www.mystic-peanut.com/mystic_sites/paintone/paintone.html?nl=8&sp=500&sl=g0;-g0;--g0;---g0;;;;;
+//  example: http://www.mystic-peanut.com/mystic_sites/paintone/paintone.html?nl=8&sp=500&sn=song1&sl=g0;-g0;--g0;---g0;;;;;
 
 function parseSongFromURL(songurl) {
   var url = new URL(songurl ? songurl : window.location.href);
   var numberOfLines = url.searchParams.get("nl");
   console.log('parseSongFromURL numberOfLines: ' + numberOfLines);
   if (numberOfLines) {
-    // song seems to be there, lets parse it
+    // song seems to be there, lets parse it    
+
+    // TODO: add rows or remove them if numberOfLines is different then current
     numFrames = numberOfLines;
-    
-    // TODO: add rows or remove them if numberOfLines is different then default
-    
+
     songSpeedMilis = url.searchParams.get("sp");
+    songName = url.searchParams.get("sn");
+    $('#id-input-songname').val(songName);
     var songLines = url.searchParams.get("sl");
     console.log('parseSongFromURL songLines: ' + songLines);
     var sheetLinesArr = songLines.split(';');
@@ -52,6 +54,7 @@ function generateURL() {
   var url = 'http://www.mystic-peanut.com/mystic_sites/paintone/paintone.html'
   var paramNumberOfLines = 'nl=' + numFrames + '&';
   var paramSongSpeed = 'sp=' + songSpeedMilis + '&';
+  var paramSongName = 'sn=' + songName + '&';
   var paramSongLines = 'sl=';
 
   for (var i=0; i<numFrames; i++) {
@@ -59,7 +62,7 @@ function generateURL() {
     paramSongLines += ';'
   }
 
-  url += '?' + paramNumberOfLines + paramSongSpeed + paramSongLines;
+  url += '?' + paramNumberOfLines + paramSongSpeed + paramSongName + paramSongLines;
 
   console.log(url);
 
@@ -122,4 +125,65 @@ function setNoteFromCode(noteCode, row, col) {
   element.style.background = "white url('media/"+codedInstrument+".png') no-repeat center";
   element.style.backgroundSize = "77%";
   element.style.borderColor = notesColors[codedNote];
+}
+
+function loadSong() {
+    // load the song from cache
+    var songUrl = window.localStorage.getItem("song1");
+    console.log('the loaded song: ' + songUrl);
+    clearSheet();
+    parseSongFromURL(songUrl);
+    showNotification('Song loaded');
+    // TODO: show notificatoin 'song loaded'
+}
+
+function clearSheet() {
+
+  for (var row=0; row<numFrames; row++) {
+    for (var col=0; col<notesInARow; col++) {
+      var element = document.getElementById('id-div-token-' + row + '-' + col);
+      element.style.background = "#fafafa";
+      element.style.borderColor = "#fafafa";
+    }
+  }
+
+  sheet = [
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+  ];
+}
+
+function showNotification(msg, time = 3000) {
+  var x = document.getElementById("snackbar");
+  x.innerHTML = msg;
+  // Add the "show" class to DIV
+  x.className = "show";
+  // After 3 seconds, remove the show class from DIV
+  setTimeout(function(){ x.className = x.className.replace("show", ""); }, time);
+
+
+
+
+  /*new Noty({
+    type: 'success', //alert (default), success, error, warning, info - ClassName generator uses this value → noty_type__${type}
+    layout: 'center', //top, topLeft, topCenter, topRight (default), center, centerLeft, centerRight, bottom, bottomLeft, bottomCenter, bottomRight - ClassName generator uses this value → noty_layout__${layout}
+    theme: 'bootstrap-v4', //relax, mint (default), metroui - ClassName generator uses this value → noty_theme__${theme}
+    text: 'My beautiful snackbar', //This string can contain HTML too. But be careful and don't pass user inputs to this parameter.
+    //timeout: 5000, // false (default), 1000, 3000, 3500, etc. Delay for closing event in milliseconds (ms). Set 'false' for sticky notifications.
+    progressBar: true, //Default, progress before fade out is displayed
+    //closeWith: 'click' //default; alternative: button
+    
+    animation: {
+        open: 'animated bounceInRight', // Animate.css class names
+        close: 'animated bounceOutRight' // Animate.css class names
+    }
+  }).show();*/
+
+  console.log('yes noty?');
 }
