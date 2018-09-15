@@ -128,13 +128,46 @@ function setNoteFromCode(noteCode, row, col) {
 }
 
 function loadSong() {
+    console.log($(this).attr('name'));
+    var song = $(this).attr('name');
     // load the song from cache
-    var songUrl = window.localStorage.getItem("song1");
+    var songUrl = window.localStorage.getItem(song);
     console.log('the loaded song: ' + songUrl);
     clearSheet();
     parseSongFromURL(songUrl);
+    // show notificatoin 'song loaded'
     showNotification('Song loaded');
-    // TODO: show notificatoin 'song loaded'
+    // hide settings
+    $('.saved-songs-div').hide('fast');
+}
+
+function showSavedSongs() {
+  $('.settings-div').hide('fast', function(){
+    // code after hiding settings is done
+    console.log('load saved songs rows');
+
+    // delete all saved song elements children of class 'savedSong'
+    $('.savedSong').each(function (i, obj) {
+      $(this).remove();
+    });
+
+    // for each saved song, re-add child row to saved-songs-div
+    var savedSongsStr = window.localStorage.getItem("savedSongs");
+    if (savedSongsStr) {
+    var savedSongs = savedSongsStr.split(';');
+      savedSongs.forEach(function (item, index) {
+        $('.saved-songs-div').append("<div id='id-saved-song-" + index + "' name='" + item + "' class='row settingsRow savedSong'> <div class='settingIcon songIcon'></div>Load <span style='color: purple'>" + item + "</span></div>");
+        var element = document.getElementById('id-saved-song-' + index);
+        element.onclick = loadSong; 
+      });
+
+      // show saved songs div
+      $('.saved-songs-div').show('fast');
+    } else {
+      console.log('error: shouldnt even be here');
+    }
+
+  });
 }
 
 function clearSheet() {
@@ -185,5 +218,5 @@ function showNotification(msg, time = 3000) {
     }
   }).show();*/
 
-  console.log('yes noty?');
+  //console.log('yes noty?');
 }

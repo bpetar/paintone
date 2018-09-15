@@ -78,9 +78,9 @@
         <div class="settingIcon saveIcon"></div>
         Save Song (to <span style="color: green">local browser cache</span>)
       </div>
-      <div class="row settingsRow loadRow" style="cursor: pointer;">
+      <div class="row settingsRow loadRow" disabled style="color: lightgray; cursor: pointer;">
         <div class="settingIcon loadIcon"></div>
-        Load Song (from <span style="color: green">local browser cache</span>)
+        My Saved Songs
       </div>
       <div class="row settingsRow">
         <div class="settingIcon libraryIcon"></div>
@@ -93,6 +93,20 @@
       </div>
     </div>
 
+    <div class="container-fluid saved-songs-div">
+      <div class="row settingsRow" style="">
+        <div class="settingIcon loadIcon"></div>
+        Click on saved song to load:
+      </div>
+      <div id='id-saved-song-0' class="row settingsRow savedSong" style="cursor: pointer;">
+        <div class="settingIcon songIcon"></div>
+         Load <span style="color: purple">Song1</span>
+      </div>
+      <div id='id-saved-song-1' class="row settingsRow savedSong" style="cursor: pointer;">
+        <div class="settingIcon songIcon"></div>
+         Load <span style="color: purple">Song2</span>
+      </div>
+    </div>
 
     <div class="container-fluid c_rowContainer_div">
       <div class="row toneRow" id="id-div-row0">

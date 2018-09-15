@@ -83,6 +83,8 @@ function initEvents() {
 
   $('.thingsIcon').mousedown(function(){
     console.log('settings clicked');
+    
+    $('.saved-songs-div').hide('fast');
 
     // toggle settings panel
     if ($('.settings-div').is(":visible")) {
@@ -112,13 +114,28 @@ function initEvents() {
     // save the song to cache
     var songCode = generateURL();
     window.localStorage.setItem(songName, songCode);
-    // TODO: show notificatoin 'song saved'
+
+    var savedSongsStr = window.localStorage.getItem("savedSongs");
+    if (savedSongsStr) {
+      var savedSongs = savedSongsStr.split(';');
+      if (savedSongs.indexOf(songName) == -1) {
+        console.log('songName saved ' + songName);
+        savedSongs.push(songName);
+        window.localStorage.setItem('savedSongs', savedSongs.join(';'));
+      }
+    } else {
+        console.log('songName saved ' + songName);
+        window.localStorage.setItem('savedSongs', songName);
+    }
+
+    // show notificatoin 'song saved'
     showNotification('Song saved');
   });
 
   $('.loadRow').mousedown(function() {
-    loadSong();
-    $('.settings-div').hide('fast');
+    //loadSong();
+    showSavedSongs();
+    //
   });
 
   $('.clearRow').mousedown(function() {
@@ -129,6 +146,13 @@ function initEvents() {
   $("#id-input-songname").change(function() {
     songName = $("#id-input-songname").val();
     console.log('songName set to: ' + songName);
+  });
+
+  $('.savedSong').mousedown(function() {
+    console.log('load songName set to: ' + songName);
+    songName = $(this).attr('name');
+    console.log('load songName set to: ' + songName);
+    loadSong(songName);
   });
 
 }
