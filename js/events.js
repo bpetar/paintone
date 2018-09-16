@@ -90,6 +90,16 @@ function initEvents() {
     if ($('.settings-div').is(":visible")) {
       $('.settings-div').hide('fast');
     } else {
+
+      // calculate if load songs should be enabled
+      if (thereAreSavedSongs()) {
+        $('.loadRow').css('color','gray');
+        $('.loadRow').css('cursor','pointer');
+      } else {
+        $('.loadRow').css('color','lightgray');
+        $('.loadRow').css('cursor','default');
+      }
+      
       $('.settings-div').show('fast');
       $("#id-input-songurl").val(generateURL());
     }
@@ -134,7 +144,9 @@ function initEvents() {
 
   $('.loadRow').mousedown(function() {
     //loadSong();
-    showSavedSongs();
+    if (thereAreSavedSongs()) {
+      showSavedSongs();
+    }
     //
   });
 

@@ -5,7 +5,7 @@ todos:
 + add 'clear all' button
 + load song to clear sheet notes .
 + add list of saved songs for load song button
-- load song disabled when no saved songs
++ load song disabled when no saved songs
 - delete saved song
 - rename saved song
 - forbid character ';' in song names

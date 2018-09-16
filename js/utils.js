@@ -170,6 +170,14 @@ function showSavedSongs() {
   });
 }
 
+function thereAreSavedSongs() {
+  var savedSongsStr = window.localStorage.getItem("savedSongs");
+  if (savedSongsStr) {
+    return true;
+  }
+  return false;
+}
+
 function clearSheet() {
 
   for (var row=0; row<numFrames; row++) {
