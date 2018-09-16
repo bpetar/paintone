@@ -160,6 +160,7 @@ function initEvents() {
     console.log('songName set to: ' + songName);
   });
 
+// TODO think this is not used
   $('.savedSong').mousedown(function() {
     console.log('load songName set to: ' + songName);
     songName = $(this).attr('name');

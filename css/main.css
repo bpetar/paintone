@@ -154,6 +154,18 @@
   height: 64px;
 }
 
+.deleteIcon {
+  right: 10px;
+  top: auto;
+  left: auto;
+  background:url('../media/delete.png'); 
+  background-size: contain; 
+  background-repeat: no-repeat; 
+  background-position: center;
+  z-index: 3;
+  cursor: pointer;
+}
+
 .settingTitle {
   display: inline-block;
   height: 64px;

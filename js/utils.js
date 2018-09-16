@@ -141,6 +141,16 @@ function loadSong() {
     $('.saved-songs-div').hide('fast');
 }
 
+function deleteSong() {
+    console.log($(this).attr('name'));
+    // TODO 
+    // ask for confirmation?
+    // remove song from cache, 
+    // remove html elem, 
+    // if last song, get out of that menu
+    // the song is gone forever
+}
+
 function showSavedSongs() {
   $('.settings-div').hide('fast', function(){
     // code after hiding settings is done
@@ -150,15 +160,20 @@ function showSavedSongs() {
     $('.savedSong').each(function (i, obj) {
       $(this).remove();
     });
+    $('.deleteIcon').each(function (i, obj) {
+      $(this).remove();
+    });
 
     // for each saved song, re-add child row to saved-songs-div
     var savedSongsStr = window.localStorage.getItem("savedSongs");
     if (savedSongsStr) {
     var savedSongs = savedSongsStr.split(';');
       savedSongs.forEach(function (item, index) {
-        $('.saved-songs-div').append("<div id='id-saved-song-" + index + "' name='" + item + "' class='row settingsRow savedSong'> <div class='settingIcon songIcon'></div>Load <span style='color: purple'>" + item + "</span></div>");
+        $('.saved-songs-div').append("<div id='id-delete-song-" + index + "' name='" + item + "' class='settingIcon deleteIcon'></div> <div id='id-saved-song-" + index + "' name='" + item + "' class='row settingsRow savedSong'> <div class='settingIcon songIcon'></div>Load <span style='color: purple'>" + item + "</span></div>");
         var element = document.getElementById('id-saved-song-' + index);
         element.onclick = loadSong; 
+        var element = document.getElementById('id-delete-song-' + index);
+        element.onclick = deleteSong; 
       });
 
       // show saved songs div
