@@ -167,6 +167,9 @@ function deleteSong() {
   var delIconElement = document.getElementById('id-delete-song-' + delIndex);
   delIconElement.remove(); 
 
+  // show notificatoin 'song deleted'
+  showNotification('Song deleted');
+
   // if last song, get out of that menu
   if (savedSongsArr.length == 0)
     $('.saved-songs-div').hide('fast');
@@ -238,9 +241,21 @@ function clearSheet() {
   ];
 }
 
-function showNotification(msg, time = 3000) {
+function showNotification(msg, color = 'green', time = 3000) {
   var x = document.getElementById("snackbar");
   x.innerHTML = msg;
+  
+  if (color == 'red') {
+    x.style.backgroundColor = 'f0dfd8';
+    x.style.borderColor = '#e9d6c6';
+    x.style.color = '#763c3d';
+  } else {
+    // default green
+    x.style.backgroundColor = '#dff0d8';
+    x.style.borderColor = '#d6e9c6';
+    x.style.color = '#3c763d';    
+  }
+
   // Add the "show" class to DIV
   x.className = "show";
   // After 3 seconds, remove the show class from DIV
@@ -266,3 +281,17 @@ function showNotification(msg, time = 3000) {
 
   //console.log('yes noty?');
 }
+
+function blockSpecialChar(event) {
+  //console.log(event);
+  var k = event.charCode;
+  // allow digits, letters, delete and backspace (8 and 127), and underscore (95) and dot (64)
+  if (((k > 47 && k < 58) || (k > 64 && k < 91) || (k > 96 && k < 123) || k == 8 || k == 127 || k == 95 || k == 46)) {
+    return true;
+  } else {
+    // show notificatoin 'song deleted'
+    showNotification('Character not supported (try: Abc_123.song)', 'red');
+    return false;
+  }
+}
+
