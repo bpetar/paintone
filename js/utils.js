@@ -142,13 +142,36 @@ function loadSong() {
 }
 
 function deleteSong() {
-    console.log($(this).attr('name'));
-    // TODO 
-    // ask for confirmation?
-    // remove song from cache, 
-    // remove html elem, 
-    // if last song, get out of that menu
-    // the song is gone forever
+  var songDeleteName = $(this).attr('name');
+  console.log(songDeleteName);
+
+  // TODO: ask for confirmation?
+  
+  // remove song from cache, 
+  var savedSongsStr = window.localStorage.getItem("savedSongs");
+  var savedSongsArr = savedSongsStr.split(';');
+  var delIndex = savedSongsArr.indexOf(songDeleteName);
+  savedSongsArr.splice(savedSongsArr.indexOf(songDeleteName),1);
+
+  if (savedSongsArr.length) {
+    window.localStorage.setItem('savedSongs', savedSongsArr.join(';'));
+  } else {
+    window.localStorage.removeItem('savedSongs');
+  }
+
+  window.localStorage.removeItem(songDeleteName);
+
+  // remove html elem
+  var element = document.getElementById('id-saved-song-' + delIndex);
+  element.remove(); 
+  var delIconElement = document.getElementById('id-delete-song-' + delIndex);
+  delIconElement.remove(); 
+
+  // if last song, get out of that menu
+  if (savedSongsArr.length == 0)
+    $('.saved-songs-div').hide('fast');
+
+  // the song is gone forever
 }
 
 function showSavedSongs() {
@@ -172,8 +195,8 @@ function showSavedSongs() {
         $('.saved-songs-div').append("<div id='id-delete-song-" + index + "' name='" + item + "' class='settingIcon deleteIcon'></div> <div id='id-saved-song-" + index + "' name='" + item + "' class='row settingsRow savedSong'> <div class='settingIcon songIcon'></div>Load <span style='color: purple'>" + item + "</span></div>");
         var element = document.getElementById('id-saved-song-' + index);
         element.onclick = loadSong; 
-        var element = document.getElementById('id-delete-song-' + index);
-        element.onclick = deleteSong; 
+        var delIconElement = document.getElementById('id-delete-song-' + index);
+        delIconElement.onclick = deleteSong; 
       });
 
       // show saved songs div

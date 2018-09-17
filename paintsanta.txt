@@ -6,7 +6,7 @@ todos:
 + load song to clear sheet notes .
 + add list of saved songs for load song button
 + load song disabled when no saved songs
-- delete saved song
++ delete saved song
 - rename saved song
 - forbid character ';' in song names
 - set speed buttons to increase volume fast while pressed
