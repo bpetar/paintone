@@ -228,7 +228,7 @@ instruments.pipe.G.appendChild(source);
 
 instruments.pipe.A1 = document.createElement('audio');
 var source = document.createElement('source');
-source.src = 'media/tones/flute_A5_05_piano_normal.mp3';
+source.src = 'media/tones/pipe/flute_A5_05_piano_normal.mp3';
 instruments.pipe.A1.appendChild(source); 
 
 instruments.pipe.B1 = document.createElement('audio');
@@ -470,51 +470,51 @@ $(document).ready(function() {
   console.log('window width: ' + window.offsetWidth);
 });
 
- add = document.getElementById('id-div-add');
- add.addEventListener("click", addFunction);
-  function addFunction() {
-  console.log('uso');
-   $('<div class="row toneRow" id="id-div-row' + numFrames + '"></div>').insertBefore($('#id-div-rowAddRemove'));
-   sheet.push([]);
-   for (var i=0; i<notesInARow; i++) {
-   $('#id-div-row' + numFrames).append('<div class="token circle2" id="id-div-token-' + numFrames + '-' + i + '"></div>');
-   var element2 = document.getElementById('id-div-token-' + numFrames + '-' + i);
-   element2.onclick = function(element2){
-    // get token row and column index
+function addFunction() {
+
+  console.log('addFunction called');
+  
+  $('<div class="row toneRow" id="id-div-row' + numFrames + '"></div>').insertBefore($('#id-div-rowAddRemove'));
+  
+  sheet.push([]);
+  
+  for (var i=0; i<notesInARow; i++) {
+    $('#id-div-row' + numFrames).append('<div class="token circle2" id="id-div-token-' + numFrames + '-' + i + '"></div>');
+    var element2 = document.getElementById('id-div-token-' + numFrames + '-' + i);
+    
+    element2.onclick = function(element2) {
+      // get token row and column index
       var rowColIDStr = element2.target.id.split('-');
       if (rowColIDStr.length > 4) {
-      var row = rowColIDStr[3];
-      var col = rowColIDStr[4];
-      var tone = sheet[row][col];
-      if (tone && tone.instrument == selectedInstrument && tone.note == selectedNote) {
-        // delete icon
-        sheet[row][col] = null;
-        element2.target.style.background = "#fafafa";
-        element2.target.style.borderColor = "#fafafa";
-      } else {
-        // set selected instrument and note
-        sheet[row][col] = {};
-        sheet[row][col].instrument = selectedInstrument;
-        sheet[row][col].note = selectedNote;
-        element2.target.style.background = "white url('media/"+selectedInstrument+".png') no-repeat center";
-        element2.target.style.backgroundSize = "77%";
-        element2.target.style.borderColor = notesColors[selectedNote];
+        var row = rowColIDStr[3];
+        var col = rowColIDStr[4];
+        var tone = sheet[row][col];
+        if (tone && tone.instrument == selectedInstrument && tone.note == selectedNote) {
+          // delete icon
+          sheet[row][col] = null;
+          element2.target.style.background = "#fafafa";
+          element2.target.style.borderColor = "#fafafa";
+        } else {
+          // set selected instrument and note
+          sheet[row][col] = {};
+          sheet[row][col].instrument = selectedInstrument;
+          sheet[row][col].note = selectedNote;
+          element2.target.style.background = "white url('media/"+selectedInstrument+".png') no-repeat center";
+          element2.target.style.backgroundSize = "77%";
+          element2.target.style.borderColor = notesColors[selectedNote];
         } 
-      } else {
-        };
       }
     }
-    numFrames++
-    console.log('frame+= id-div-row' + numFrames);
   }
+  numFrames++;
+  console.log('frame+= id-div-row' + numFrames);
+}
 
- rmv = document.getElementById('id-div-remove');
- rmv.addEventListener("click", rmvFunction);
-  function rmvFunction() {
-   numFrames--
-   var IDX = 'id-div-row' + numFrames;
-   var element = document.getElementById(IDX);
-   element.parentNode.removeChild(element);
-   sheet.pop();
-   console.log('frame-= id-div-row' + numFrames);
-  } 
+function rmvFunction() {
+  numFrames--;
+  var IDX = 'id-div-row' + numFrames;
+  var element = document.getElementById(IDX);
+  element.parentNode.removeChild(element);
+  sheet.pop();
+  console.log('frame-= id-div-row' + numFrames);
+} 

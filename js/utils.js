@@ -23,8 +23,16 @@ function parseSongFromURL(songurl) {
   if (numberOfLines) {
     // song seems to be there, lets parse it    
 
-    // TODO: add rows or remove them if numberOfLines is different then current
+    // add rows or remove them if numberOfLines is different then current
+    while (numFrames != numberOfLines) {
+      if (numFrames < numberOfLines)
+        addFunction();
+      else
+        rmwFunction();
+    }
+
     numFrames = numberOfLines;
+    currentFrame = numFrames - 1;
 
     songSpeedMilis = url.searchParams.get("sp");
     songName = url.searchParams.get("sn");

@@ -5,6 +5,8 @@
 // crveno, zuto, narandzasto, zeleno, ljubicasto, plavo, svetloroze, (crveno)
 function initEvents() {
   
+  console.log('... calling init events');
+
   $('.colorPick').mousedown(function(element){
     // get color index
     console.log(element);
