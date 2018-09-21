@@ -19,6 +19,7 @@
   <script src="js/events.js"></script>
   <script src="js/main.js"></script>
   
+  
   <style>
   </style>
   
@@ -109,7 +110,7 @@
       </div>
     </div>
 
-    <div class="container-fluid c_rowContainer_div">
+    <div class="container-fluid c_rowContainer_div" id="id-rowContainer">
       <div class="row toneRow" id="id-div-row0">
         <div class="token circle2" id="id-div-token-0-0">
         </div>
@@ -257,11 +258,11 @@
       </div>
 
       <div class="row toneRow" style="border-bottom: solid 1px gray; margin-bottom:148px;" id="id-div-rowAddRemove">
-        <div class="" id="id-div-add"> Add
-        </div>
-        <div class="" id="id-div-remove"> Remove
-        </div>
-      </div>
+   <div class="addButton btn btn-lg" style="margin-top: 3px" id="id-div-add" onclick='addFunction(this)'> ADD
+   </div>
+   <div class="rmvButton btn btn-lg" style="margin-top: 3px" id="id-div-remove" onclick='rmvFunction(this)'> RMV
+   </div>
+ </div>
 
     </div>
 
@@ -322,4 +323,7 @@
       </div>      
     </div>
   </div>
+
+  
+
 </body>

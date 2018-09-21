@@ -16,3 +16,7 @@ todos:
 - pause to stop playback imediately
 - artist name
 - restart sound glider
+- setting number of rows
+- why are circles2 out of line
+- why is Add=null
+- problems with tones

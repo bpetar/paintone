@@ -432,4 +432,26 @@
     height: 32px;
     width: 32px;
   }*/
+
+
+.addButton { 
+    border: 1px solid gray;
+    border-radius: 8px;
+    float: left;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 25px;
+    font-family: 'Amatic SC';
+}
+
+ .rmvButton { 
+     border: 1px solid gray;
+     border-radius: 8px;
+     float: right;
+     text-align: center;
+     text-decoration: none;
+     display: inline-block;
+     font-size: 25px;
+     font-family: 'Amatic SC';
 }
