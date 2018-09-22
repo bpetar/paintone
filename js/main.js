@@ -416,8 +416,10 @@ function processRow() {
 
   prevousFrame = currentFrame;
   currentFrame++;
-  if (currentFrame == numFrames) 
+  if (currentFrame >= numFrames) {
     currentFrame = 0;
+    prevousFrame = numFrames-1;
+  }
   console.log('tact ' + currentFrame);
 
   document.getElementById('id-div-row' + currentFrame).style.backgroundColor = 'lightGreen';
@@ -511,6 +513,9 @@ function addFunction() {
 }
 
 function rmvFunction() {
+  if (numFrames < 3)
+    return;
+
   numFrames--;
   var IDX = 'id-div-row' + numFrames;
   var element = document.getElementById(IDX);

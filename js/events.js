@@ -7,6 +7,11 @@ function initEvents() {
   
   console.log('... calling init events');
 
+  window.onblur = function() {
+    console.log('dont play when in background');
+    mainLoopPlaying = false;
+  };
+
   $('.colorPick').mousedown(function(element){
     // get color index
     console.log(element);
