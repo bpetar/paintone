@@ -24,6 +24,14 @@
   height: 64px;
   background: white;
   z-index: 2;
+
+
+  -webkit-border-radius: 25px;
+  -moz-border-radius: 25px;
+  border-radius: 25px;
+  border-top: 1px solid;
+  border-bottom: 1px solid;
+
 }
 
 .playIcon {
@@ -203,11 +211,24 @@
 .instrumentRowWrap {
   position: fixed;
   bottom: 0px;
-  padding-bottom: 10px;
+  padding-bottom: 9px;
   width: 100%;
   height: 74px;
   background: white;
   overflow-x: auto;
+
+  max-width: 590px;
+
+  -webkit-border-bottom-left-radius: 50px 20px;
+  -webkit-border-bottom-right-radius: 50px 20px;
+  //-moz-border-radius: 25px;
+
+  border-bottom-left-radius: 50px 20px:
+  border-bottom-right-radius: 50px 20px:
+
+  //border-radius: 25px;
+  border-bottom: 1px solid;
+
 }
 
 .colorRowWrap {
