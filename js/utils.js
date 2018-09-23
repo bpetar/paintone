@@ -237,16 +237,11 @@ function clearSheet() {
     }
   }
 
-  sheet = [
-    [],
-    [],
-    [],
-    [],
-    [],
-    [],
-    [],
-    [],
-  ];
+  sheet = [];
+
+  for (var row=0; row<numFrames; row++) {
+    sheet[row] = [];
+  }
 }
 
 function showNotification(msg, color = 'green', time = 3000) {

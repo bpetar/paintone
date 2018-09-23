@@ -97,6 +97,11 @@ function initEvents() {
     document.body.scrollTop = 0; // For Safari
     document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
 
+    if ($('.about-div').is(':visible')) {
+      $('.about-div').hide('fast');
+      return;
+    }
+
     // toggle settings panel
     if ($('.settings-div').is(":visible")) {
       $('.settings-div').hide('fast');
@@ -159,6 +164,15 @@ function initEvents() {
       showSavedSongs();
     }
     //
+  });
+
+  $('.aboutRow').mousedown(function() {
+    $('.settings-div').hide('fast', function(){
+      // scroll to the top
+      document.body.scrollTop = 0; // For Safari
+      document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera      
+      $('.about-div').show('fast');
+    });
   });
 
   $('.clearRow').mousedown(function() {

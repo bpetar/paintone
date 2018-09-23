@@ -203,42 +203,42 @@ instruments.drums.C1.appendChild(source);
 
 instruments.pipe.C = document.createElement('audio');
 var source = document.createElement('source');
-source.src = 'media/tones/pipe/flute_C4_05_piano_normal.mp3';
+source.src = 'media/tones/clarinet/clarinet_C4_05_piano_normal.mp3';
 instruments.pipe.C.appendChild(source); 
 
 instruments.pipe.D = document.createElement('audio');
 var source = document.createElement('source');
-source.src = 'media/tones/pipe/flute_D4_05_piano_normal.mp3';
+source.src = 'media/tones/clarinet/clarinet_D4_05_piano_normal.mp3';
 instruments.pipe.D.appendChild(source); 
 
 instruments.pipe.E = document.createElement('audio');
 var source = document.createElement('source');
-source.src = 'media/tones/pipe/flute_E4_05_piano_normal.mp3';
+source.src = 'media/tones/clarinet/clarinet_E4_05_piano_normal.mp3';
 instruments.pipe.E.appendChild(source); 
 
 instruments.pipe.F = document.createElement('audio');
 var source = document.createElement('source');
-source.src = 'media/tones/pipe/flute_F4_05_piano_normal.mp3';
+source.src = 'media/tones/clarinet/clarinet_F4_05_piano_normal.mp3';
 instruments.pipe.F.appendChild(source); 
 
 instruments.pipe.G = document.createElement('audio');
 var source = document.createElement('source');
-source.src = 'media/tones/pipe/flute_G4_05_piano_normal.mp3';
+source.src = 'media/tones/clarinet/clarinet_G4_05_piano_normal.mp3';
 instruments.pipe.G.appendChild(source); 
 
 instruments.pipe.A1 = document.createElement('audio');
 var source = document.createElement('source');
-source.src = 'media/tones/pipe/flute_A5_05_piano_normal.mp3';
+source.src = 'media/tones/clarinet/clarinet_A4_05_piano_normal.mp3';
 instruments.pipe.A1.appendChild(source); 
 
 instruments.pipe.B1 = document.createElement('audio');
 var source = document.createElement('source');
-source.src = 'media/tones/pipe/flute_B5_05_piano_normal.mp3';
+source.src = 'media/tones/clarinet/clarinet_B4_05_piano_normal.mp3';
 instruments.pipe.B1.appendChild(source); 
 
 instruments.pipe.C1 = document.createElement('audio');
 var source = document.createElement('source');
-source.src = 'media/tones/pipe/flute_C5_05_piano_normal.mp3';
+source.src = 'media/tones/clarinet/clarinet_C5_05_piano_normal.mp3';
 instruments.pipe.C1.appendChild(source);  
 
 //harp
@@ -414,6 +414,9 @@ instruments.violin.C1.appendChild(source);
 
 function processRow() {
 
+  if ( ! mainLoopPlaying)
+    return;
+
   prevousFrame = currentFrame;
   currentFrame++;
   if (currentFrame >= numFrames) {
@@ -469,7 +472,22 @@ $(document).ready(function() {
   selectedColorElement.style.borderColor = "#2afa2a";
   selectedInstrumentElement.style.borderColor = "#2afa2a";
 
-  console.log('window width: ' + window.offsetWidth);
+  console.log('window width: ' + window.innerWidth);
+
+  //songSpeedMilis = window.innerWidth;
+
+  // adjust settings width according to window width (not good)
+  var appWidth = window.innerWidth > 570 ? 570 : window.innerWidth;
+  document.getElementById('id-input-songname').style.width = 70 + appWidth - 300;
+  document.getElementById('id-input-songurl').style.width = 47 + appWidth - 300;
+  //console.log(document.getElementById('id-save-song-row').innerHTML);
+  if (appWidth < 412) {
+    document.getElementById('id-save-song-row').innerHTML = '<div class="settingIcon saveIcon"></div> Save Song';
+    document.getElementById('id-song-library-row').innerHTML = '<div class="settingIcon libraryIcon"></div> Song Library';
+    document.getElementById('id-input-songspeed').style.width = '40px';
+    document.getElementById('id-input-songspeed').style.marginLeft = '61px';
+    document.getElementById('id-speed-right').style.left = '250px';
+  }
 });
 
 function addFunction() {
@@ -508,6 +526,12 @@ function addFunction() {
       }
     }
   }
+
+  // not so good
+  //if ( ! mainLoopPlaying && currentFrame == numFrames - 1) {
+  //  currentFrame++;
+  //}
+
   numFrames++;
   console.log('frame+= id-div-row' + numFrames);
 }

@@ -1,6 +1,6 @@
 <html>
 <head>
-  <title>painTone</title>
+  <title>Ditty in a Jar</title>
   <link href="https://fonts.googleapis.com/css?family=Amatic+SC" rel="stylesheet">
   <meta http-equiv="Content-Type" name="viewport" content="width=device-width, initial-scale=1" charset="utf8">
 
@@ -63,7 +63,7 @@
       <div class="row settingsRow">
         <div class="settingIcon speedIcon"></div>
         <div class="leftIcon"></div>
-        <div class="rightIcon"></div>
+        <div class="rightIcon" id='id-speed-right'></div>
         Set Speed <input id='id-input-songspeed' type='text' value='500' style='color: red; text-align: center; font-size: 30px; padding-left: 2px; margin-left: 67px; width: 100px;'>
       </div>
 
@@ -76,7 +76,7 @@
         Name Song
         <input id='id-input-songname' type='text' value='song1' onkeypress='return blockSpecialChar(event);' style='color: purple; text-align: left; font-size: 30px; padding-left: 8px; padding-right: 8px; margin-left: 27px; width: 160px;'>
       </div>
-      <div class="row settingsRow saveRow" style="cursor: pointer;">
+      <div class="row settingsRow saveRow" id="id-save-song-row" style="cursor: pointer;">
         <div class="settingIcon saveIcon"></div>
         Save Song (to <span style="color: green">local browser cache</span>)
       </div>
@@ -84,7 +84,11 @@
         <div class="settingIcon loadIcon"></div>
         My Saved Songs
       </div>
-      <div class="row settingsRow">
+      <div class="row settingsRow aboutRow" style="cursor: pointer;">
+        <div class="settingIcon aboutIcon"></div>
+        About
+      </div>
+      <div class="row settingsRow" id="id-song-library-row">
         <div class="settingIcon libraryIcon"></div>
         Song Library (<span style="color: orange">coming soon</span>)
       </div>
@@ -107,6 +111,14 @@
       <div id='id-saved-song-1' class="row settingsRow savedSong" style="cursor: pointer;">
         <div class="settingIcon songIcon"></div>
          Load <span style="color: purple">Song2</span>
+      </div>
+    </div>
+
+    <div class="container-fluid about-div" style="display: none;">
+      <div class="row" style="">
+        <br>Ditty Jar was devised by Ksenija X and Mystic Peanut entertainment.
+        <br>Sounds are courtesy of <a href="https://www.philharmonia.co.uk/">https://www.philharmonia.co.uk/</a>
+        <br>Copyright 2018
       </div>
     </div>
 

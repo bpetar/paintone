@@ -73,6 +73,12 @@
   max-width: 590px; 
 }
 
+.about-div {
+  display: none;
+  margin-top: 64px;
+  max-width: 590px; 
+}
+
 .settingsRow {
   position: relative;
   height: 64px;
@@ -448,6 +454,7 @@
     text-decoration: none;
     display: inline-block;
     font-size: 25px;
+    color: gray;
     font-family: 'Amatic SC';
 }
 
@@ -455,6 +462,7 @@
      border: 1px solid gray;
      border-radius: 8px;
      float: right;
+     color: gray;
      text-align: center;
      text-decoration: none;
      display: inline-block;
