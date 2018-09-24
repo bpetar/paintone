@@ -28,7 +28,7 @@ function parseSongFromURL(songurl) {
       if (numFrames < numberOfLines)
         addFunction();
       else
-        rmwFunction();
+        rmvFunction();
     }
 
     numFrames = numberOfLines;

@@ -77,42 +77,42 @@ instruments = {
 
 instruments.xylophone.C = document.createElement('audio');
 var source = document.createElement('source');
-source.src = 'media/tones/xylophone/C.wav';
+source.src = 'media/tones/xylophone/xc1.mp3';
 instruments.xylophone.C.appendChild(source); 
 
 instruments.xylophone.D = document.createElement('audio');
 var source = document.createElement('source');
-source.src = 'media/tones/xylophone/D.wav';
+source.src = 'media/tones/xylophone/xd1.mp3';
 instruments.xylophone.D.appendChild(source); 
 
 instruments.xylophone.E = document.createElement('audio');
 var source = document.createElement('source');
-source.src = 'media/tones/xylophone/E.wav';
+source.src = 'media/tones/xylophone/xe1.mp3';
 instruments.xylophone.E.appendChild(source); 
 
 instruments.xylophone.F = document.createElement('audio');
 var source = document.createElement('source');
-source.src = 'media/tones/xylophone/F.wav';
+source.src = 'media/tones/xylophone/xf1.mp3';
 instruments.xylophone.F.appendChild(source); 
 
 instruments.xylophone.G = document.createElement('audio');
 var source = document.createElement('source');
-source.src = 'media/tones/xylophone/C.wav';
+source.src = 'media/tones/xylophone/xg1.mp3';
 instruments.xylophone.G.appendChild(source); 
 
 instruments.xylophone.A1 = document.createElement('audio');
 var source = document.createElement('source');
-source.src = 'media/tones/xylophone/D.wav';
+source.src = 'media/tones/xylophone/xa2.mp3';
 instruments.xylophone.A1.appendChild(source); 
 
 instruments.xylophone.B1 = document.createElement('audio');
 var source = document.createElement('source');
-source.src = 'media/tones/xylophone/E.wav';
+source.src = 'media/tones/xylophone/xb2.mp3';
 instruments.xylophone.B1.appendChild(source); 
 
 instruments.xylophone.C1 = document.createElement('audio');
 var source = document.createElement('source');
-source.src = 'media/tones/xylophone/F.wav';
+source.src = 'media/tones/xylophone/xc2.mp3';
 instruments.xylophone.C1.appendChild(source); 
 
 // guitar

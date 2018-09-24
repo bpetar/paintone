@@ -221,8 +221,8 @@
 
   -webkit-border-bottom-left-radius: 50px 20px;
   -webkit-border-bottom-right-radius: 50px 20px;
-  //-moz-border-radius: 25px;
-
+  -moz-border-bottom-right-radius: 50px 20px;
+  -moz-border-bottom-left-radius: 50px 20px;
   border-bottom-left-radius: 50px 20px:
   border-bottom-right-radius: 50px 20px:
 
