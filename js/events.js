@@ -12,16 +12,21 @@ function initEvents() {
     mainLoopPlaying = false;
   };
 
-  $('.colorPick').mousedown(function(element){
+  $('.colorPick').mousedown(function(event){
     // get color index
-    console.log(element);
-    var rowColIDStr = element.currentTarget.id.split('-');
+    console.log('colorPick click');
+    var rowColIDStr = event.currentTarget.id.split('-');
     if (rowColIDStr.length > 2) {
       var col = rowColIDStr[3];
       selectedNote = notes[col];
       selectedColorElement.style.borderColor = "white";
-      selectedColorElement = element.currentTarget;
+      selectedColorElement = event.currentTarget;
       selectedColorElement.style.borderColor = "#2afa2a";
+
+      instruments[selectedInstrument][selectedNote].volume = 1;
+      instruments[selectedInstrument][selectedNote].currentTime = 0;
+      instruments[selectedInstrument][selectedNote].play();
+
     } else {
       console.log('error parsing colorPick id');
     }
@@ -37,6 +42,11 @@ function initEvents() {
       selectedInstrumentElement.style.borderColor = "white";
       selectedInstrumentElement = element.currentTarget;
       selectedInstrumentElement.style.borderColor = "#2afa2a";
+
+      instruments[selectedInstrument][selectedNote].volume = 1;
+      instruments[selectedInstrument][selectedNote].currentTime = 0;
+      instruments[selectedInstrument][selectedNote].play();
+
     } else {
       console.log('error parsing colorPick id');
     }
