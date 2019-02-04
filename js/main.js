@@ -409,8 +409,34 @@ var source = document.createElement('source');
 source.src = 'media/tones/violin/violin_C5_05_forte_arco-normal.mp3';
 instruments.violin.C1.appendChild(source); 
 
+allSoundsPlayed = false;
+
+function screenTouched() {
+  console.log('screenTouched');
+  /*if ( ! allSoundsPlayed) {
+    playallsounds();
+
+    resultTimoutHandler = setTimeout(function(){ 
+      allSoundsPlayed = true;
+    }, 2100);
+
+    
+  }*/
+}
 
 
+function playallsounds() {
+  $("#welcome").hide();
+
+  for (var n=0; n < notes.length; n++) {
+    for (var i=0; i < 8; i++) {
+      instruments[instruments[i]][notes[n]].volume = 0.0;
+      instruments[instruments[i]][notes[n]].currentTime = 0;
+      instruments[instruments[i]][notes[n]].play();
+    }
+  }
+
+}
 
 function processRow() {
 
@@ -456,7 +482,7 @@ function processRow() {
 }
 
 $(document).ready(function() {
-  console.log('page loaded');
+  console.log('page loaded all ' + navigator.userAgent);
 
   parseSongFromURL();
 

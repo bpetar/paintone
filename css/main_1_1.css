@@ -520,6 +520,14 @@
   .rmvButton { 
      margin-right: 13px;
   }
+
+  .inputSongname {
+    cursor: pointer;
+  }
+
+  .inputSongname:focus + .instrumentRowWrap {
+    display: none;
+  }
 }
 
 /*

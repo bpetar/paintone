@@ -1,6 +1,6 @@
 <html>
 <head>
-  <title>Ditty Jar</title>
+  <title>Klang Farben Melodie</title>
   <link href="https://fonts.googleapis.com/css?family=Amatic+SC|Shadows+Into+Light" rel="stylesheet">
   <meta http-equiv="Content-Type" name="viewport" content="width=device-width, initial-scale=1" charset="utf8">
 
@@ -14,7 +14,7 @@
   <script src="js/jquery/jquery-3.3.1.min.js"></script>
   <link rel="stylesheet" href="js/bootstrap-3.3.7/css/bootstrap.min.css">
   <script src="js/bootstrap-3.3.7/js/bootstrap.min.js"></script>
-  <link rel="stylesheet" href="css/main_1_1.css">
+  <link rel="stylesheet" href="css/main.css">
   <script src="js/utils.js"></script>
   <script src="js/events.js"></script>
   <script src="js/main.js"></script>
@@ -53,14 +53,14 @@
       </div>
     </div> -->
 
-    <!--<div id="welcome" style="background-color: rgba(123,123,228,0.4); width: 100%; height:100%; position: absolute; top:0px; left:0px; z-index:99;">
+    <div id="welcome" style="background-color: rgba(123,123,228,0.4); width: 100%; height:100%; position: absolute; top:0px; left:0px; z-index:99;">
       <div style="position:absolute; top:100px; left:0px; z-index:100; width: 100%; background-color: white; border: 1px solid gray; border-radius: 25px; padding: 20px; text-align: center; "><h3>Welcome to our little tune maker!</h3> <p>Pick the tone colors and instruments in the bottom and place them on the sheet. Then press play button to hear them play.</p>
       <input type="button" onclick="playallsounds()" value="ok"/>
       </div>
-    </div>-->
+    </div>
 
     <div class="row mainHeader" id="id-div-header-text">
-      Ditty Jar
+      Klang Farben Melodie
       <div class="playIcon"></div>
       <div class="thingsIcon"></div>
     </div>
@@ -80,7 +80,7 @@
       <div class="row settingsRow nameRow" style="cursor: pointer;">
         <div class="settingIcon nameIcon"></div>
         Name Song
-        <input id='id-input-songname' class="inputSongname" type='text' value='song1' onkeypress='return blockSpecialChar(event);' style='color: purple; text-align: left; font-size: 30px; padding-left: 8px; padding-right: 8px; margin-left: 27px; width: 160px;'>
+        <input id='id-input-songname' type='text' value='song1' onkeypress='return blockSpecialChar(event);' style='color: purple; text-align: left; font-size: 30px; padding-left: 8px; padding-right: 8px; margin-left: 27px; width: 160px;'>
       </div>
       <div class="row settingsRow saveRow" id="id-save-song-row" style="cursor: pointer;">
         <div class="settingIcon saveIcon"></div>
@@ -121,7 +121,7 @@
     </div>
 
     <div class="container-fluid about-div" style="display: none;">
-      <div class="row" style="font-family: 'Amatic SC'; font-size: 18px; padding: 10px;">
+      <div class="row" style="font-family: 'Amatic SC'; font-size: 18px;">
         <br><span style="font-size: 28px;"">About DJ</span>
         <br>
         <br><span style="font-family: 'Shadows Into Light', cursive;">This application was based on idea that colors and shapes can be used to simplify and optimize music sheets as they are today. In the current state, app replaces notes with colors, but further development is possible to introduce shapes as tone dynamic or articulation. Tone length variations are also something that could be added to enrich functionality, but not at the expence of simplicity. We see this application as tool to compose simple songs, as a way for children to express creativity and explore meaning of composition, as a fun way to teach foundation of music in a classroom.</span>
@@ -130,7 +130,6 @@
         <br>
         <br>Ditty Jar was devised by Ksenija Kovačević and Mystic Peanut entertainment.
         <br>Copyright 2018
-        <br>v1.1
       </div>
     </div>
 
@@ -167,9 +166,6 @@
    </div>
  </div>
 
-    </div>
-
-    <div class="row underInstrumentsRow">
     </div>
 
     <div class="row colorRowWrap">

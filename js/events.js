@@ -7,6 +7,8 @@ function initEvents() {
   
   console.log('... calling init events');
 
+  document.addEventListener("touchstart", screenTouched);
+
   window.onblur = function() {
     console.log('dont play when in background');
     mainLoopPlaying = false;
@@ -23,9 +25,9 @@ function initEvents() {
       selectedColorElement = event.currentTarget;
       selectedColorElement.style.borderColor = "#2afa2a";
 
-      instruments[selectedInstrument][selectedNote].volume = 1;
-      instruments[selectedInstrument][selectedNote].currentTime = 0;
-      instruments[selectedInstrument][selectedNote].play();
+      //instruments[selectedInstrument][selectedNote].volume = 1;
+      //instruments[selectedInstrument][selectedNote].currentTime = 0;
+      //instruments[selectedInstrument][selectedNote].play();
 
     } else {
       console.log('error parsing colorPick id');
@@ -43,9 +45,9 @@ function initEvents() {
       selectedInstrumentElement = element.currentTarget;
       selectedInstrumentElement.style.borderColor = "#2afa2a";
 
-      instruments[selectedInstrument][selectedNote].volume = 1;
-      instruments[selectedInstrument][selectedNote].currentTime = 0;
-      instruments[selectedInstrument][selectedNote].play();
+      //instruments[selectedInstrument][selectedNote].volume = 1;
+      //instruments[selectedInstrument][selectedNote].currentTime = 0;
+      //instruments[selectedInstrument][selectedNote].play();
 
     } else {
       console.log('error parsing colorPick id');
@@ -85,7 +87,15 @@ function initEvents() {
 
   $('.playIcon').mousedown(function(){
     console.log('play clicked');
-    
+
+    // hack to fix "DOMException: play() can only be initiated by a user gesture."
+    // if all tones not played, play them now
+    if ( ! allSoundsPlayed) {
+      console.log('play clicked not');
+      playallsounds();
+      allSoundsPlayed = true;
+    }
+
     // play stop main loop
     if (mainLoopPlaying) {
       mainLoopPlaying = false;
