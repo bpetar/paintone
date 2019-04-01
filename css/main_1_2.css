@@ -85,7 +85,7 @@
   padding-left: 70px;
   padding-top: 11px;
   font-size: 30px;
-  color: gray;
+  color: #383636;
   font-family:'Amatic SC';
 }
 
@@ -189,7 +189,7 @@
 .settingIcon {
   position: absolute;
   left: 10px;
-  top: 2px;
+  top: 10px;
   width: 48px;
   height: 48px;
 }
